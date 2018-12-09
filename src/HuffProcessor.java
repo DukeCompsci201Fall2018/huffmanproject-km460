@@ -64,7 +64,7 @@ public class HuffProcessor {
 		String code;
 		while(true) {
 			int bits = in.readBits(BITS_PER_WORD);
-			if(bits ==PSEUDO_EOF) {
+			if(bits ==-1) {
 				break;
 			}
 			else {
