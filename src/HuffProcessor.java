@@ -72,14 +72,12 @@ public class HuffProcessor {
 				out.writeBits(code.length(), Integer.parseInt(code, 2));	
 			}
 		}
-		
 		code = codings[PSEUDO_EOF];
 		out.writeBits(code.length(), Integer.parseInt(code, 2));
-		out.close();
 	}
 
 	private void writeHeader(HuffNode root, BitOutputStream out) {
-		if(root.myLeft !=null || root.myRight != null) {
+		if(!(root.myLeft ==null && root.myRight == null)) {
 			out.write(0); 
 			writeHeader(root.myLeft, out);
 			writeHeader(root.myRight, out);
